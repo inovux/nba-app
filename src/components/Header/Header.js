@@ -3,11 +3,13 @@ import style from './Header.css';
 import { Link } from 'react-router-dom';
 
 import FontAwesome from 'react-fontawesome';
+import SideNav from './SideNav/SideNav';
 
-const Header = () => {
+const Header = props => {
   const navBars = () => (
     <div className={style.bars}>
       <FontAwesome
+        onClick={props.onOpenNav}
         name="bars"
         style={{
           color: '#dfdfdf',
@@ -26,6 +28,7 @@ const Header = () => {
 
   return (
     <header className={style.header}>
+      <SideNav {...props} />
       <div className={style.headerOpt}>
         {navBars()}
         {logo()}
