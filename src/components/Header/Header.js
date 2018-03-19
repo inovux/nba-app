@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './Header.css';
+import styles from './Header.css';
 import { Link } from 'react-router-dom';
 
 import FontAwesome from 'react-fontawesome';
@@ -7,7 +7,7 @@ import SideNav from './SideNav/SideNav';
 
 const Header = props => {
   const navBars = () => (
-    <div className={style.bars}>
+    <div className={styles.bars}>
       <FontAwesome
         onClick={props.onOpenNav}
         name="bars"
@@ -21,15 +21,15 @@ const Header = props => {
   );
 
   const logo = () => (
-    <Link to="/" className={style.logo}>
+    <Link to="/" className={styles.logo}>
       <img alt="nba logo" src="/images/nba_logo.png" />
     </Link>
   );
 
   return (
-    <header className={style.header}>
+    <header className={styles.header}>
       <SideNav {...props} />
-      <div className={style.headerOpt}>
+      <div className={styles.headerOpt}>
         {navBars()}
         {logo()}
       </div>
