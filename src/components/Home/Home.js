@@ -1,5 +1,6 @@
 import React from 'react';
 import NewsSlider from '../widgets/NewsSlider/NewsSlider';
+import NewsList from '../widgets/NewsList/NewsList';
 
 const Home = props => {
   return (
@@ -12,6 +13,7 @@ const Home = props => {
           dots: false
         }}
       />
+      <NewsList type="card" loadmore={true} start={3} amount={3} />
     </div>
   );
 };
