@@ -60,7 +60,7 @@ class VideosList extends Component {
     this.request(this.state.end, end);
   }
 
-  renderTitle = () => {
+  renderButton = () => {
     return this.props.loadmore ?
       <Button
         type="loadmore"
@@ -75,7 +75,7 @@ class VideosList extends Component {
       />
   }
 
-  renderButton = () => {
+  renderTitle = () => {
     return this.props.title ?
       <h3><strong>NBA</strong> Videos</h3>
     : null;
