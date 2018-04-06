@@ -13,7 +13,7 @@ const NewsMain = () => (
     />
     <NewsList
       type="cardMain"
-      loadMore={true}
+      loadmore={true}
       start={3}
       amount={10}
     />
