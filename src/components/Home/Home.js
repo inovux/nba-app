@@ -14,13 +14,13 @@ const Home = props => {
           dots: false
         }}
       />
-      {/* <NewsList
+      <NewsList
         type="card"
         loadmore={true}
         start={3}
         amount={3}
       />
-      <VideoList
+      {/* <VideoList
         type="card"
         title={true}
         loadmore={true}
