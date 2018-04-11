@@ -14,7 +14,7 @@ const Home = props => {
           dots: false
         }}
       />
-      <NewsList
+      {/* <NewsList
         type="card"
         loadmore={true}
         start={3}
@@ -26,7 +26,7 @@ const Home = props => {
         loadmore={true}
         start={0}
         amount={3}
-      />
+      /> */}
     </div>
   );
 };

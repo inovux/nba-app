@@ -53,7 +53,7 @@
   "scripts": {
     "front-server": "node scripts/start.js",
     "dev-server": "json-server --watch db.json --port 3004",
-    "start": "npm run dev-server | npm run front-server",
+    "start": "npm run front-server",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom"
   },
