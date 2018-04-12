@@ -56,8 +56,6 @@ class SignIn extends Component {
 
     newElement.value = element.event.target.value;
 
-    console.log(element);
-
     if(element.blur) {
       let validData = this.validate(newElement);
       newElement.valid = validData[0];
@@ -105,10 +103,60 @@ class SignIn extends Component {
 
   }
 
+  submitForm = (event, type) => {
+
+    event.preventDefault();
+
+    if(type !== null) {
+
+      let dataToSubmit = {};
+      let formIsValid = true;
+
+      for(let key in this.state.formData) {
+
+        dataToSubmit[key] = this.state.formData[key].value;
+
+      }
+
+      for(let key in this.state.formData) {
+
+        formIsValid = this.state.formData[key].valid && formIsValid;
+
+      }
+
+      if(formIsValid) {
+
+        this.setState({
+          loading: true,
+          registerError: ''
+        })
+
+        if(type) {
+          console.log('LOG IN');
+        } else {
+          console.log('REGISTER');
+        }
+
+      }
+
+    }
+
+  }
+
+  submitButton = () => (
+    this.state.loading ?
+      'loading...'
+    :
+      <div>
+        <button onClick={(event) => this.submitForm(event, false)}> Register now </button>
+        <button onClick={(event) => this.submitForm(event, true)}> Log in </button>
+      </div>
+  )
+
   render() {
     return (
       <div className={styles.logContainer}>
-        <form>
+        <form onSubmit={(event) => this.submitForm(event, null)}>
           <h2>Register / Log in</h2>
           <FormField
             id="email"
@@ -121,6 +169,8 @@ class SignIn extends Component {
             formData={this.state.formData.password}
             change={(element) => this.updateForm(element)}
           />
+
+          {this.submitButton()}
         </form>
       </div>
     )
