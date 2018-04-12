@@ -7,6 +7,24 @@ const FormFields = ({
   id
 }) => {
 
+  const showError = () => {
+
+    let errorMessage = null;
+
+    if(formData.validation && !formData.valid) {
+
+      errorMessage = (
+        <div className={styles.labelError}>
+          {formData.validationMessage}
+        </div>
+      );
+
+    }
+
+    return errorMessage;
+
+  }
+
   const renderTemplate = () => {
 
     let formTemplate = null;
@@ -18,9 +36,10 @@ const FormFields = ({
             <input
               {...formData.config}
               value={formData.value}
-              onBlur={(event) => change({event, id, blue: true})}
-              onChange={(event) => change({event, id, blue: false})}
+              onBlur={(event) => change({event, id, blur: true})}
+              onChange={(event) => change({event, id, blur: false})}
             />
+            {showError()}
           </div>
         );
         break;
