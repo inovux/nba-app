@@ -44,16 +44,40 @@ class SignIn extends Component {
     }
   }
 
-  updateForm = (element) => {}
+  updateForm = (element) => {
+
+    const newFormdata = {
+      ...this.state.formData
+    }
+
+    const newElement = {
+      ...newFormdata[element.id]
+    }
+
+    newElement.value = element.event.target.value;
+    newFormdata[element.id] = newElement;
+
+    this.setState({
+      formData: newFormdata
+    });
+
+  }
 
   render() {
     return (
       <div className={styles.logContainer}>
         <form>
+          <h2>Register / Log in</h2>
           <FormField
-            id='email'
+            id="email"
             formData={this.state.formData.email}
-            change={(element) => this.updateForm()}
+            change={(element) => this.updateForm(element)}
+          />
+
+          <FormField
+            id="password"
+            formData={this.state.formData.password}
+            change={(element) => this.updateForm(element)}
           />
         </form>
       </div>
